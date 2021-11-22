@@ -1,17 +1,17 @@
-var updateTime = setInterval(showTimeDay, 1000); // update time for every 1s
+var updateTime = setInterval(showTimeDay, 1000); 
 
 
 //showing time and day
 function showTimeDay() {
     var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes(); //getting time 
+    var time = today.getHours() + ":" + today.getMinutes();
 
     document.getElementById('topTime').innerHTML = time
 
-    document.getElementById('time').innerHTML = time; //showing time on page
+    document.getElementById('time').innerHTML = time; 
 
-    var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];//array of days
-    document.getElementById('day').innerHTML = weekDays[today.getDay()] // showing todays day on page
+    var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    document.getElementById('day').innerHTML = weekDays[today.getDay()]
 
 }
 
@@ -21,7 +21,6 @@ let innerMsg = document.getElementById('innermessage')
 let hr = document.createElement('hr')
 var msg = document.createElement('p')
 
-//showing messages window
 function showMessage() {
     document.getElementById('timeDisplay').style.display = 'none'
     document.getElementById('musicDisplay').style.display = 'none'
@@ -30,13 +29,11 @@ function showMessage() {
     document.getElementById('clock').style.color = 'gray'
     document.getElementById('message').style.color = 'white'
 }
-//showing full messages after clicking on message
 function showJavaMsg() {
     document.getElementById('btnMessage').disabled = true
     document.getElementById('btnMusic').disabled = true
     message.style.display = 'none'
     innerMsg.style.display = 'block'
-    // var javamsg = document.createElement('p')
     msg.innerText = "Java is high-level programming language developed by sun Microsystems"
     innerMsg.appendChild(msg)
     innerMsg.appendChild(hr)
@@ -48,7 +45,6 @@ function showHtmlMsg() {
     document.getElementById('btnMusic').disabled = true
     message.style.display = 'none'
     innerMsg.style.display = 'block'
-    // var htmlmsg = document.createElement('p')
     msg.innerText = "HTML stands for Hyper Text Markup Language. HTML describes the structure of a Web page."
     innerMsg.appendChild(msg)
     innerMsg.appendChild(hr)
@@ -59,12 +55,10 @@ function showCssMsg() {
     document.getElementById('btnMusic').disabled = true
     message.style.display = 'none'
     innerMsg.style.display = 'block'
-    // var cssmsg = document.createElement('p')
     msg.innerText = "Css is a cascading style sheet used for styling purpose."
     innerMsg.appendChild(msg)
     innerMsg.appendChild(hr)
 }
-//showing time when clicks on clock button
 function showWatch() {
     msg.innerText = ''
     document.getElementById('btnMessage').disabled = false
@@ -80,57 +74,48 @@ function showWatch() {
     document.getElementById('message').style.color = 'white'
 }
 
-//Data for music tracks
 var tracks =[
     {
+        id:"1",
+        name: "Ayyayo",
+        trackSrc: "assests/Ayyayo.mp3",
+        artist : "GV Prakash",
+        imgSrc: "http://3.bp.blogspot.com/_-0z_2JCI04A/TQ43YN7ewOI/AAAAAAAAAps/ueIFzjG2iXI/s1600/aadukalam-tamilasia-mp3-songs.jpg"
+    },
+    {
         id:"2",
-        name: "Dusk Till Dawn",
-        trackSrc: "assests/dusk.mp3",
-        artist : "Zayan",
-        imgSrc: "https://upload.wikimedia.org/wikipedia/en/f/f3/Dusk_Till_Dawn_Zayn_Malik.jpg"
+        name: "SiragugalVanthathu",
+        trackSrc: "assests/SiragugalVanthathu .mp3",
+        artist : "Haricharan",
+        imgSrc: "https://a10.gaanacdn.com/gn_img/albums/MmqK5pEbwR/mqK57OmXWw/size_l.webp"
     },
     {
         id:"3",
-        name: "Hills",
-        trackSrc: "assests/hills.mp3",
-        artist : "Weeknd",
-        imgSrc: "https://upload.wikimedia.org/wikipedia/en/a/af/The_Weeknd_-_The_Hills.jpg"
-    },
-    {
-        id:"4",
-        name: "Eastside",
-        trackSrc: "assests/eastside.mp3",
-        artist: "Khalid",
-        imgSrc: "https://i.ytimg.com/vi/KFof8aaUvGY/maxresdefault.jpg"
+        name: "Thangachi",
+        trackSrc: "assests/Thangachi.mp3",
+        artist: "Santhosh Narayanan",
+        imgSrc: "https://a10.gaanacdn.com/gn_img/song/01A3mar3NQ/A3m9w8mj3N/size_l_1516002206.webp"
     },
     
     {
-        id:"5",
-        name: "Ocean",
-        trackSrc: "assests/ocean.mp3",
-        artist: "Khalid",
-        imgSrc: "https://images.genius.com/aa371867dc335167a703b247759c115a.619x273x1.jpg"
+        id:"4",
+        name: "Thayya Thayya",
+        trackSrc: "assests/ThayyaThayyaUyire.mp3",
+        artist: "Sukhwinder Singh",
+        imgSrc: "https://a10.gaanacdn.com/gn_img/albums/koMWQ4B3qL/oMWQjnaEbq/size_l.webp"
 
     },
     {
-        id:"6",
-        name: "Trip",
+        id:"5",
+        name: "Yathe",
         trackSrc: "assests/trip.mp3",
-        artist: "Ella Mai",
+        artist: "GV Prakash",
         imgSrc: "https://i.ytimg.com/vi/uHDO2aqY5mc/maxresdefault.jpg"
 
     },
-    {
-        id:"7",
-        name: "Sunflower",
-        trackSrc: "assests/sunflower.mp3",
-        artist: "Post Malone",
-        imgSrc: "https://i.ytimg.com/vi/BN63QQmn3Ck/maxresdefault.jpg"
-
-    }
+   
     
 ]
-//showing music window
 function playMusic() {
     document.getElementById('timeDisplay').style.display = 'none'
     document.getElementById('messageDisplay').style.display = 'none'
@@ -143,14 +128,12 @@ function playMusic() {
 let play = document.getElementById('play-pause')
 let ol = document.getElementById('orderList')
 
-//iterate through data to crate list 
 tracks.forEach(track=>{
 let li = document.createElement('li')
 var audio = document.querySelector('audio')
 li.innerHTML=track.id+" . "+track.name + "<span>- "+track.artist+"</span>"
 var img = document.getElementById('songimg')
 
-//function to set track details and play song
 li.onclick = function(){
 
     var trackname = document.getElementById('trackname')
